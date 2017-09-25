@@ -1,0 +1,8 @@
+{
+  "name": "coderbyte",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Conor Doyle <doyle7@hotmail.com>",
+  "license": "MIT",
+  "devDependencies": {}
+}
