@@ -7,20 +7,20 @@
 <body>
 <script>
 `EASY QUESTIONS!!!`;
-function square(list) {
-  var result = [];
-  for (var i = 0; i < list.length; i++) {
-    result.push( function() {return list[i]*list[i]} );
-  }
-  return result;
-}
+// function square(list) {
+//   var result = [];
+//   for (var i = 0; i < list.length; i++) {
+//     result.push( function() {return list[i]*list[i]} );
+//   }
+//   return result;
+// }
 
-var list = square([1,2,3]);
-for (var i = 0; i < list.length; i++) {
-  console.log(list[i]());
-}
+// var list = square([1,2,3]);
+// for (var i = 0; i < list.length; i++) {
+//   console.log(list[i]());
+// }
 
-console.log(square());
+// console.log(square());
 `Create a for loop that iterates up to 100 while outputting "fizz" at multiples of 3, "buzz" at multiples of 5 and "fizzbuzz" at multiples of 3 and 5`;
 // for (let i = 1; i <= 100; i++) {
 //   if (i % 3 === 0 && i % 5 === 0) {
@@ -283,66 +283,59 @@ console.log(square());
 //   return mean === parseInt(mode) ? 1 : 0;
 // }
 // console.log(meanMode([5, 3, 3, 3, 1]));
-`Write a function that returns the first word with the greatest number of repeated letters. For example: "Today, is the greatest day ever!" should return 'greatest' because it has 2 e's (and 2 t's) and it comes before 'ever' which also has 2 e's. If there are no words with repeating letters return -1.`;
-// function letterCount(str) {
-//   const arr = str.split(' ')
-//   const letterCount = arr.map(item => {
-//     const store = {};
-//     item.split('').forEach(letter => {
-//       store[letter] = store[letter] + 1 || 1;
-//     })
-//     return Object.keys(store).map(key => store[key]).sort((a, b) => a - b).pop();
-//   });
+`Write a function that returns the first word with the greatest number of repeated letters. For example: "Today, is the greatest day ever!" should return 'greatest' because it has 2 e's (and 2 t's) and it comes before 'ever' which also has 2 e's. If there are no words with repeating letters return false.`;
+function highestRepeatedLetters(str) {
+  const arr = str.split(' ');
+  const letterCount = arr.map(word => {
+    const store = {};
+    word.split('').forEach(letter => {
+      store[letter] = store[letter] + 1 || 1;
+    })
+    // return Object.values(store).sort((a, b) => a - b).pop(); // Another way of doing it.
+    return Math.max(...Object.values(store));
+  });
 
-//   if (Math.max(...letterCount) === 1) {
-//     return -1;
-//   }
-//   return arr[letterCount.indexOf(Math.max(...letterCount))];
-// }
-// console.log(letterCount('Hello apple pie'));
-`Write a function that takes an array of numbers and returns the string "Arithmetic" if the sequence follows an arithmetic pattern or "Geometric" if it follows a geometric pattern. If the sequence doesn't follow either pattern return -1. An arithmetic sequence is one where the difference between each of the numbers is consistent, where as in a geometric sequence, each term after the first is multiplied by some constant or common ratio. Arithmetic example: [2, 4, 6, 8] and Geometric example: [2, 6, 18, 54].`;
+  console.log(letterCount);
+  if (Math.max(...letterCount) === 1) {
+    return false;
+  }
+
+  return arr[letterCount.indexOf(Math.max(...letterCount))];
+}
+console.log(highestRepeatedLetters('Hello apple pie'));
+`Write a function that takes an array of numbers and returns the string "Arithmetic" if the sequence follows an arithmetic pattern or "Geometric" if it follows a geometric pattern. If the sequence doesn't follow either pattern return false. An arithmetic sequence is one where the difference between each of the numbers is consistent, where as in a geometric sequence, each term after the first is multiplied by some constant or common ratio. Arithmetic example: [2, 4, 6, 8] and Geometric example: [2, 6, 18, 54].`;
 // function arithGeo(arr) {
-//   const arrLength = arr.length;
-//   if ((arr[arrLength - 2] - arr[arrLength - 3]) + arr[arrLength - 2] === arr[arrLength - 1]) {
+//   const arrLen = arr.length;
+//   if ((arr[arrLen - 2] - arr[arrLen - 3]) + arr[arrLen - 2] === arr[arrLen - 1]) {
 //     return 'Arithmetic'
-//   } else if((arr[arrLength - 2] / arr[arrLength - 3]) * arr[arrLength - 2] === arr[arrLength - 1]) {
+//   } else if ((arr[arrLen - 2] / arr[arrLen - 3]) * arr[arrLen - 2] === arr[arrLen - 1]) {
 //     return 'Geometric'
 //   }
-//   return -1;
+//   return false;
 // }
 // console.log(arithGeo([2, 4, 6, 8])); // Arithmetic
-// console.log(arithGeo([2, 6, 18, 54]));  // Geometric
-// console.log(arithGeo([2, 4, 16, 24])); // -1
+// // console.log(arithGeo([2, 6, 18, 54]));  // Geometric
+// // console.log(arithGeo([2, 4, 16, 24])); // -1
 `Check if a string is a palindrome or not, i.e. the string is the same forwards as it is backwards.`;
 // function checkIfPalindrome(str) {
 //   const forwards = [...str].filter(el => el !== ' ');
-//   const backwards = [...str].reverse().filter(el => el !== ' ');
-//   for (let i = 0; i <= str.length; i++ ) {
-//     if (forwards[i] !== backwards[i]) {
-//       return false;
-//     }
-//   }
-//   return true;
+//   const backwards = [...forwards].reverse();
+//   return forwards.join('') === backwards.join('');
 // }
 // console.log(checkIfPalindrome('race car'));
 `Write a function that traverses a string and returns true if there are an equal amount of 'x's and
 'o's in it, or false otherwise.`;
 // function ExOh(str) {
-//   const x = [];
-//   const o = [];
+//   let xCounter = 0;
+//   let yCounter = 0;
+//   const arr = [...str];
 
-//   [...str].forEach(letter => {
-//     if (letter === 'x') {
-//       x.push(letter);
-//     } else {
-//       o.push(letter);
-//     }
-//   });
-
-//   if (x.length === o.length) {
-//     return true;
+//   for(let i = 0, l = arr.length; i < l; i++) {
+//     if (arr[i] === 'x') xCounter += 1;
+//     if (arr[i] === 'o') yCounter += 1;
 //   }
-//   return false;
+
+//   return (xCounter === yCounter);
 // }
 // console.log(ExOh('xooxxoo'));
 `Write a function that takes in a sentence and returns its word count.`;
@@ -350,7 +343,7 @@ console.log(square());
 // console.log(wordCount('Write a function that'));
 `Write a function that returns the number of vowels in any given string`;
 // function vowelCount(str) {
-//   const vowels = [...str].filter(letter => /a|e|i|o|u/ig.test(letter));
+//   const vowels = [...str].filter(letter => /a|e|i|o|u/i.test(letter));
 //   return vowels.length;
 // }
 // console.log(vowelCount('coderbyte'));
@@ -363,7 +356,7 @@ console.log(square());
 // }
 // console.log(ABCheck('lane borrowed'));
 `Write a function that takes in a string then then rearranges the letters alphabetically.`;
-// const alphabetSoup = str => [...str].sort();
+// const alphabetSoup = str => [...str].sort().join('');
 // console.log(alphabetSoup('coderbyte'));
 'Write a function that takes in a number and then seperates it into hours and mins.';
 // function timeConvert(num) {
@@ -373,17 +366,14 @@ console.log(square());
 // }
 // console.log(timeConvert(126));
 // console.log(timeConvert(45));
-`Write a function that takes in two numbers. If both equal return '-1', if num2 is greater than num1
-return true.`;
+`Write a function that takes in two numbers. If both equal return '-1', if num2 is greater than num1 return true.`;
 // function CheckNums(num1,num2) {
-//   if (num1 === num2) {
-//      return -1;
-//   } else {
-//     return (num2 > num1);
-//   }
+//   if (num1 === num2) return false
+//   return (num2 > num1);
 // }
 
 // console.log(CheckNums(1, 2));
+// console.log(CheckNums(2, 1));
 `Write a function that accepts a string and determines if it is an acceptable sequence by either returning the boolean true or false. The string will be composed of + and = symbols with several letters between them (ie. ++d+===+c++==a) and for the string to be true each letter must be surrounded by a + symbol.`;
 // // I don't understand this one yet...
 // function stringChecker(str) {
@@ -406,20 +396,19 @@ return true.`;
 // console.log(capFirstLetter('Let\'s capatalise the first letter of each word in this string.'));
 `Write a function that adds up all the numbers from 1 to the given number.`;
 // function addNumbers(num) {
-//  let answer = 0;
+//  let sum = 0;
 //  for (let i = 1; i <= num; i++) {
-//    answer += i;
+//    sum += i;
 //  }
-//  return answer;
+//  return sum;
 // }
 // console.log(addNumbers(4));
 `Find the longest word in a sentence, ignoring punctuation.`;
 // function findLongestWord(sen) {
-//   // const arr = str.split(' '); // If we were including punctuation then we could use this, as it
-//   // just splits the setence each time it encounters a space.
+//   // const arr = sen.split(' '); // If we were including punctuation then we could use this, as it just splits the setence each time it encounters a space.
 //   const arr = sen.match(/\w+/gi);
-//   const sortedByLength = arr.sort((a, b) => b.length - a.length);
-//   return sortedByLength[0];
+//   const sortedByLen = arr.sort((a, b) => b.length - a.length);
+//   return sortedByLen[0];
 // }
 // console.log(findLongestWord('What is the longest word in this sentence?'));
 `Calculate the factorial of a number using recursion`;
@@ -446,32 +435,26 @@ return true.`;
 // console.log(factorial(5));
 `Write a function that reverses a string`;
 // const reverseString = str => [...str].reverse().join('');
-// // console.log(reverseString('cat'));
-`How would you check that a number is an integer`;
+// console.log(reverseString('cat'));
+// `How would you check that a number is an integer`;
 // function isInt(num) {
 //  return num % 1 === 0;
 // }
 // console.log(isInt(4)); // true
 // console.log(isInt(12.4)); // false
 `How would you check that a number is even`;
-// function isEven(num) {
-//  return num % 2 === 0;
-// }
+// const isEven = num => num % 2 === 0;
 // console.log(isEven(4)); // true
 // console.log(isEven(5)); // false
 `Make a function that duplicates a given array.`;
-// function duplicate(array) {
-//  // You could do a map or a forEach then return the array. But the shortest way is using the ES6
-//  // spread operator.
-//  return [...array, ...array];
-// }
-// const result = duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
-// console.log(result);
+//  // You could do a map or a forEach then return the array. But the shortest way is using the ES6 spread operator.
+// const duplicate = arr => [...arr, ...arr];
+// console.log(duplicate([1,2,3,4,5])); // [1,2,3,4,5,1,2,3,4,5]
 `How would you add your own method to the Array object so you could find the
 average of an array of numbers.`;
 // const arr = [1, 2, 3, 4, 5];
 // Array.prototype.average = function() {
-//  const sum = this.reduce((acc, num) => acc + num, 0)
+//  const sum = this.reduce((acc, num) => acc + num)
 //  return sum / this.length;
 // }
 // const avg = arr.average();
@@ -479,12 +462,11 @@ average of an array of numbers.`;
 `Double an array of numbers, then save the original numbers and the doubled
 results as key-value pairs in an object.`;
 // const arr = [1, 2, 3, 4, 5];
-// const doubled = arr.map(num => num * 2)
-// const finalObj = arr.reduce((obj, num, i) => {
-//  obj[num] = doubled[i];
+// const result = arr.reduce((obj, num) => {
+//  obj[num] = num * 2;
 //  return obj;
 // }, {})
-// console.log(finalObj);
+// console.log(result);
 </script>
 </body>
 </html>
