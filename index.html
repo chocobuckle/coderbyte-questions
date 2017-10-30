@@ -7,20 +7,70 @@
 <body>
 <script>
 `EASY QUESTIONS!!!`;
-// function square(list) {
-//   var result = [];
-//   for (var i = 0; i < list.length; i++) {
-//     result.push( function() {return list[i]*list[i]} );
+`Write a function that takes in a string of alphanumeric characters with a single asterisk character splitting the string evenly into two separate strings and returns a new string that pairs up the characters in the corresponding locations from both strings.`;
+// function strMerge(str) {
+//   const strArr = str.match(/\w+/ig);
+//   const [ string1, string2 ] = strArr;
+//   let newString = '';
+//   for (let i = 0; i < string1.length; i++) {
+//     newString += string1[i] + string2[i];
 //   }
-//   return result;
+//   return newString;
+// }
+// console.log(strMerge('aaa*bbb')); // ababab
+// console.log(strMerge('123hg*aaabb')); // 1a2a3ahbgb
+`Write a function that determines if the multiplication of any two numbers in an array is greater
+than the sum of all the numbers in the array`;
+// function sumMultiplier(arr) {
+//   const doubledSum = (arr.reduce((acc, num) => acc + num) * 2);
+//   const sortedArr = arr.sort((a, b) => a - b);
+//   const lastTwoNums = sortedArr.slice(-2);
+//   return lastTwoNums[0] * lastTwoNums[1] > doubledSum;
+// }
+// console.log(sumMultiplier([2, 2, 2, 2, 4, 1])); // false
+// console.log(sumMultiplier([1, 1, 2, 10, 3, 1, 12])); // true
+`Write a function that takes a string and returns the string in proper snake case.`;
+// function snakeCase(str) {
+//   const strArr = str.match(/[a-zA-Z]+/ig);
+//   const snakeCaseArr = strArr.map(str => str.toLowerCase())
+//   return snakeCaseArr.join('_');
+// }
+// console.log(snakeCase('a b c d-e-f%g')); // a_b_c_d_e_f_g
+// console.log(snakeCase('cats AND*Dogs-are Awesome')); // cats_and_dogs_are_awesome
+`Write a function that checks whether every single number in the passed in parameter is even.`;
+// function simpleEvens(num) {
+//   const strArr = [...num.toString()];
+//   const numArr = strArr.map(str => parseInt(str));
+//   const sum = numArr.reduce((acc, num) => acc + num);
+//   return sum % 2 === 0;
+// }
+// console.log(simpleEvens(2222220222)); // true
+// console.log(simpleEvens(20864646452)); // false
+`Write a function that takes a string and returns the string in proper camel case.`;
+// function camelCase(str) {
+//   const strArr = str.match(/[a-zA-Z]+/ig);
+//   const camelCaseArr = strArr.map((str, i) => {
+//     if (i === 0) {
+//       return str.toLowerCase();
+//     } else if (i !== 0 && str.length > 1) {
+//       return str[0].toUpperCase() + str.slice(1).toLowerCase();
+//     } else {
+//       return str.toUpperCase();
+//     }
+//   })
+//   return camelCaseArr.join('');
+// }
+// console.log(camelCase("a b c d-e-f%g")); // aBCDEFG
+// console.log(camelCase("cats AND*Dogs-are Awesome")); // cATSANDDOGSAREAWESOME
+`Write a function that takes an array of numbers an returns the sum of the largest four numbers.`;
+// function largestFour(arr) {
+//   const sorted = arr.sort((a, b) => a - b);
+//   const largestFourNums = sorted.slice(-4);
+//   return largestFourNums.reduce((acc, num) => acc + num);
 // }
 
-// var list = square([1,2,3]);
-// for (var i = 0; i < list.length; i++) {
-//   console.log(list[i]());
-// }
-
-// console.log(square());
+// console.log(largestFour([1, 1, 1, -5])); // -2
+// console.log(largestFour([0, 0, 2, 3, 7, 1])); // 13
 `Create a for loop that iterates up to 100 while outputting "fizz" at multiples of 3, "buzz" at multiples of 5 and "fizzbuzz" at multiples of 3 and 5`;
 // for (let i = 1; i <= 100; i++) {
 //   if (i % 3 === 0 && i % 5 === 0) {
@@ -38,10 +88,9 @@
 //   const heavySide = Math.max(...scale);
 //   const lightSide = Math.min(...scale);
 //   const diff = heavySide - lightSide;
-//   const len = weights.length;
-//   for (let i = 0; i < len; i++) {
+//   for (let i = 0; i < weights.length; i++) {
 //     if (weights[i] === diff) return '' + weights[i];
-//     for (let j = i + 1; j < len - 1; j++) {
+//     for (let j = i + 1; j < weights.length - 1; j++) {
 //       if (weights[i] + weights[j] === diff) {
 //         return weights[i] + ', ' + weights[j];
 //       }
@@ -88,7 +137,7 @@
 // function  NonRepeatingCharacter(str) {
 //   const strArr = [...str];
 //   const charObj = strArr.reduce((obj, str) => {
-//     obj[str] ? obj[str] += 1 : obj[str] = 1;&
+//     obj[str] = obj[str] + 1 || 1;
 //     return obj;
 //   }, {});
 //   for (let prop in charObj) {
@@ -112,11 +161,11 @@
 // console.log(LargestPair(101010101)); // 10
 `Write a function that takes a number and returns the next largest palindromic number. For example, if the number is 24, then your program should return 33 because that is the next largest number that is a palindrome.`;
 // function NextPalindrome(num) {
-//   let count = num + 1;
+//   let nextNum = num + 1;
 //   while (true) {
-//     let reversedStr = [...count.toString()].reverse().join('');
-//     if (count.toString() === reversedStr) return count;
-//     count++;
+//     let reversedStr = [...nextNum.toString()].reverse().join('');
+//     if (nextNum.toString() === reversedStr) return nextNum;
+//     nextNum += 1;
 //   }
 // }
 // console.log(NextPalindrome(2)); // 3
@@ -153,9 +202,9 @@
 `Write a function that takes an array of numbers and determines if the array forms a superincreasing sequence where each element in the array is greater than the sum of all previous elements. For example: if arr is [1, 3, 6, 13, 54] then your program should return the string "true" because it forms a superincreasing sequence. If a superincreasing sequence isn't formed, then your program should return the string "false".`;
 // function superIncreasing(arr) {
 //   for (let i = 1; i < arr.length; i++) {
-//     let previousElements = arr.slice(0, i);
-//     let sumOfPreviousElements = previousElements.reduce((acc, num) => acc + num);
-//     if (arr[i] <= sumOfPreviousElements) return false;
+//     const prevElements = arr.slice(0, i);
+//     const sumOfPrevElements = prevElements.reduce((acc, num) => acc + num);
+//     if (arr[i] <= sumOfPrevElements) return false;
 //   }
 //   return true;
 // }
@@ -164,9 +213,9 @@
 `Write a function that takes an array of numbers, the first two representing a range of numbers (a to b), the next 2 representing another range of numbers (c to d), and a 5th element (x) also being a number, and return true if both sets of ranges overlap by at least x numbers. For example: if arr is [4, 10, 2, 6, 3] then your program should return the string true. The first range of numbers are 4, 5, 6, 7, 8, 9, 10 and the second range of numbers are 2, 3, 4, 5, 6. The last element in the array is 3, and there are 3 numbers that overlap between both ranges: 4, 5, and 6. If both ranges do not overlap by at least x numbers, then your program should return false.`;
 // function OverlappingRanges(arr) {
 //   // keep a count of how many numbers overlap
-//   var counter = 0;
+//   let counter = 0;
 //   // loop through one of the ranges
-//   for (var i = arr[0]; i < arr[1]; i++) {
+//   for (let i = arr[0]; i <= arr[1]; i++) {
 //     // check if a number within the first range exists
 //     // in the second range
 //     if (i >= arr[2] && i <= arr[3]) {
@@ -175,24 +224,24 @@
 //   }
 //   // check if the numbers that overlap is equal to or greater
 //   // than the last number in the array
-//   return (counter >= arr[4]) ? true : false;
+//   return counter >= arr[4] ? true : false;
 // }
 // console.log(OverlappingRanges([5, 11, 1, 5, 1]));
 // console.log(OverlappingRanges([1, 8, 2, 4, 4]));
 'Write a function that determines at what index in an array the sequence change from increasing to decreasing or vice versa. For example, if the array were [1, 2, 4, 6, 4, 3, 1] then your program should return 3 because at index 3 the sequence begins to change from increasing to decreasing. If there is no change in sequence, then your program should return -1.';
 // function ChangingSequence(arr) {
 //   // check if first two numbers form an increasing sequence
-//   var increasing = arr[1] > arr[0] ? true : false;
+//   const startsIncreasing = arr[1] > arr[0] ? true : false;
 //   // loop through the rest of the array
-//   for (var i = 2; i < arr.length; i++) {
+//   for (let i = 2; i < arr.length; i++) {
 //     // determine if next number in sequence matches
 //     // the boolean value we define in the variable "increasing"
-//     var seq = arr[i] > arr[i - 1];
+//     const stillIncreasing = arr[i] > arr[i - 1];
 //     // if they do not match, then we know the sequence changes
-//     if (seq !== increasing) { return i - 1; }
+//     if (stillIncreasing !== startsIncreasing) return i - 1;
 //   }
 //   // if no change was detected, then just return -1
-//   return -1;
+//   return false;
 // }
 // console.log(ChangingSequence([5, 4, 3, 2, 10, 11]));
 // console.log(ChangingSequence([100, 101, 102, 101]));
@@ -233,22 +282,18 @@
 // console.log(thirdLongest(['abc','defg','z','hijk'])); // 'abc'
 `Write a function that adds up all the numbers found in a given string. You will have to differentiate between single digit numbers and multiple digit numbers.`;
 // function numberAddition(str) {
-//   const arr = str.match(/\d+/ig);
+//   const arr = str.match(/\d+/gi);
 //   return arr.reduce((acc, num) => parseInt(acc) + parseInt(num));
 // }
 // console.log(numberAddition('75Number9'));
 // console.log(numberAddition('10 2One Number*1*'));
-`Write a function that swaps the case each character in a given string.`;
+`Write a function that swaps the case of each character in a given string.`;
 // function swapCase(str) {
-//   const chars = [...str]; // Or str.split('');
-//   for (let i = 0; i < str.length; i++) {
-//     if (chars[i] === chars[i].toUpperCase()) {
-//       chars[i] = chars[i].toLowerCase();
-//     } else {
-//       chars[i] = chars[i].toUpperCase();
-//     }
-//   }
-//   return chars.join('');
+//   const chars = [...str];
+//   const swappedCases = chars.map(char => char === char.toUpperCase()
+//     ? char.toLowerCase()
+//     : char.toUpperCase());
+//   return swappedCases.join('');
 // }
 // console.log(swapCase("Hello-LOL"));
 `Write a function that takes in a string and inserts dashes('-') between each two consecutive odd numbers.`;
@@ -280,29 +325,28 @@
 //     if (countObject[prop] === highestValue) mode = prop;
 //   }
 
-//   return mean === parseInt(mode) ? 1 : 0;
+//   return mean === parseInt(mode) ? true : false;
 // }
 // console.log(meanMode([5, 3, 3, 3, 1]));
 `Write a function that returns the first word with the greatest number of repeated letters. For example: "Today, is the greatest day ever!" should return 'greatest' because it has 2 e's (and 2 t's) and it comes before 'ever' which also has 2 e's. If there are no words with repeating letters return false.`;
-function highestRepeatedLetters(str) {
-  const arr = str.split(' ');
-  const letterCount = arr.map(word => {
-    const store = {};
-    word.split('').forEach(letter => {
-      store[letter] = store[letter] + 1 || 1;
-    })
-    // return Object.values(store).sort((a, b) => a - b).pop(); // Another way of doing it.
-    return Math.max(...Object.values(store));
-  });
+// function highestRepeatedLetters(str) {
+//   const arr = str.split(' ');
 
-  console.log(letterCount);
-  if (Math.max(...letterCount) === 1) {
-    return false;
-  }
+//   const highestRepsPerWord = arr.map(word => {
+//     const letterCount = {};
+//     word.split('').forEach(letter => {
+//       letterCount[letter] = letterCount[letter] + 1 || 1;
+//     })
+//     return Math.max(...Object.values(letterCount));
+//   });
 
-  return arr[letterCount.indexOf(Math.max(...letterCount))];
-}
-console.log(highestRepeatedLetters('Hello apple pie'));
+//   const highestRepsInAllWords = Math.max(...highestRepsPerWord);
+
+//   if (highestRepsInAllWords === 1) return false;
+
+//   return arr[highestRepsPerWord.indexOf(highestRepsInAllWords)];
+// }
+// console.log(highestRepeatedLetters('Hello appple pie'));
 `Write a function that takes an array of numbers and returns the string "Arithmetic" if the sequence follows an arithmetic pattern or "Geometric" if it follows a geometric pattern. If the sequence doesn't follow either pattern return false. An arithmetic sequence is one where the difference between each of the numbers is consistent, where as in a geometric sequence, each term after the first is multiplied by some constant or common ratio. Arithmetic example: [2, 4, 6, 8] and Geometric example: [2, 6, 18, 54].`;
 // function arithGeo(arr) {
 //   const arrLen = arr.length;
@@ -314,8 +358,8 @@ console.log(highestRepeatedLetters('Hello apple pie'));
 //   return false;
 // }
 // console.log(arithGeo([2, 4, 6, 8])); // Arithmetic
-// // console.log(arithGeo([2, 6, 18, 54]));  // Geometric
-// // console.log(arithGeo([2, 4, 16, 24])); // -1
+// console.log(arithGeo([2, 6, 18, 54]));  // Geometric
+// console.log(arithGeo([2, 4, 16, 24])); // -1
 `Check if a string is a palindrome or not, i.e. the string is the same forwards as it is backwards.`;
 // function checkIfPalindrome(str) {
 //   const forwards = [...str].filter(el => el !== ' ');
@@ -330,7 +374,7 @@ console.log(highestRepeatedLetters('Hello apple pie'));
 //   let yCounter = 0;
 //   const arr = [...str];
 
-//   for(let i = 0, l = arr.length; i < l; i++) {
+//   for(let i = 0; i < arr.length; i++) {
 //     if (arr[i] === 'x') xCounter += 1;
 //     if (arr[i] === 'o') yCounter += 1;
 //   }
@@ -355,7 +399,7 @@ console.log(highestRepeatedLetters('Hello apple pie'));
 //   return false;
 // }
 // console.log(ABCheck('lane borrowed'));
-`Write a function that takes in a string then then rearranges the letters alphabetically.`;
+`Write a function that takes in a string then rearranges the letters alphabetically.`;
 // const alphabetSoup = str => [...str].sort().join('');
 // console.log(alphabetSoup('coderbyte'));
 'Write a function that takes in a number and then seperates it into hours and mins.';
@@ -366,27 +410,14 @@ console.log(highestRepeatedLetters('Hello apple pie'));
 // }
 // console.log(timeConvert(126));
 // console.log(timeConvert(45));
-`Write a function that takes in two numbers. If both equal return '-1', if num2 is greater than num1 return true.`;
+`Write a function that takes in two numbers. If both equal return false, if num2 is greater than num1 return true.`;
 // function CheckNums(num1,num2) {
-//   if (num1 === num2) return false
-//   return (num2 > num1);
+//   return num1 === num2;
+//   return num2 > num1;
 // }
 
-// console.log(CheckNums(1, 2));
+// console.log(CheckNums(2, 2));
 // console.log(CheckNums(2, 1));
-`Write a function that accepts a string and determines if it is an acceptable sequence by either returning the boolean true or false. The string will be composed of + and = symbols with several letters between them (ie. ++d+===+c++==a) and for the string to be true each letter must be surrounded by a + symbol.`;
-// // I don't understand this one yet...
-// function stringChecker(str) {
-//   if (/^[a-zA-Z]/.test(str) || /[a-zA-Z]$/.test(str)) {
-//      return false;
-//   } else if (/[^+][a-zA-Z]/.test(str) || /[a-zA-Z][^+]/.test(str)) {
-//       return false;
-//   } else {
-//    return true;
-//   }
-// }
-// console.log(stringChecker('+d+=3=+s+'));
-// console.log(stringChecker('f++d+'));
 `Write a function that capatalises the first letter of each word in a string`;
 // function capFirstLetter(str) {
 //  const arr = str.split(' ');
@@ -410,9 +441,9 @@ console.log(highestRepeatedLetters('Hello apple pie'));
 //   const sortedByLen = arr.sort((a, b) => b.length - a.length);
 //   return sortedByLen[0];
 // }
-// console.log(findLongestWord('What is the longest word in this sentence?'));
+// console.log(findLongestWord('What is the longest word in this sentence'));
 `Calculate the factorial of a number using recursion`;
-// // Simplest way...
+// Simplest way...
 // const getFactorial = num => num === 0 ? 1 : num * getFactorial(num - 1);
 // console.log(getFactorial(5));
 
@@ -436,10 +467,8 @@ console.log(highestRepeatedLetters('Hello apple pie'));
 `Write a function that reverses a string`;
 // const reverseString = str => [...str].reverse().join('');
 // console.log(reverseString('cat'));
-// `How would you check that a number is an integer`;
-// function isInt(num) {
-//  return num % 1 === 0;
-// }
+`How would you check that a number is an integer`;
+// const isInt = num => num % 1 === 0;
 // console.log(isInt(4)); // true
 // console.log(isInt(12.4)); // false
 `How would you check that a number is even`;
@@ -457,8 +486,7 @@ average of an array of numbers.`;
 //  const sum = this.reduce((acc, num) => acc + num)
 //  return sum / this.length;
 // }
-// const avg = arr.average();
-// console.log(avg);
+// console.log(arr.average()); // 3
 `Double an array of numbers, then save the original numbers and the doubled
 results as key-value pairs in an object.`;
 // const arr = [1, 2, 3, 4, 5];
