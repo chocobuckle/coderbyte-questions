@@ -7,6 +7,73 @@
 <body>
 <script>
 `EASY QUESTIONS!!!`;
+``;
+function arrayAddition(arr) {
+  const highestNum = Math.max(...arr);
+  const nums = arr.filter(num => num >= 0 && num !== highestNum)
+  console.log(nums);
+}
+console.log(arrayAddition([3,5,-1,8,12]));
+`Write a function that takes in a string and determines if each letter in the string is surrounded by '+' symbols.`;
+// function simpleSymbols(str) {
+//   const strArr = [...str];
+//   let answer;
+//   for (let i = 0; i < strArr.length; i++) {
+//     if (strArr[i].match(/[a-zA-Z]/i)) {
+//       if (strArr[i - 1] === '+' && strArr[i + 1] === '+') {
+//         answer = true;
+//       } else {
+//         answer = false;
+//         break;
+//       }
+//     }
+//   }
+//   return answer === true ? answer : false;
+// }
+// console.log(simpleSymbols('+d+=3=+s+')); // true
+// console.log(simpleSymbols('f++d+')); // false
+`Write a function that takes a string which is a rating between 0.00 and 5.00, and convert this rating into a list of 5 image names to be displayed in a user interface to represent the rating as a list of stars and half stars. Ratings should be rounded up to the nearest half. There are 3 image file names available: "full.jpg", "half.jpg", "empty.jpg". The output will be the name of the 5 images (without the extension), from left to right, separated by spaces. For example: if str is "2.36" then you should return the string "full full half empty empty".`;
+// function starRating(str) {
+//   const parsedScore = parseFloat(str);
+//   const roundedHalf = (function (num) {
+//       return Math.round(num * 2) / 2;
+//   })(parsedScore);
+//   let answer = '';
+//   for (let i = 1; i <= roundedHalf; i++) {
+//     if (roundedHalf !== 0) {
+//       answer += 'full ';
+//     } else {
+//       answer = 'empty ';
+//     }
+//   }
+//   if (roundedHalf.toString().length > 1) {
+//     answer += 'half ';
+//   }
+//   const empties = parseInt(5 - roundedHalf);
+//   for (let j = 1; j <= empties; j++) answer += 'empty ';
+//   return answer.slice(0, answer.length - 1);
+// }
+// console.log(starRating('4.20'));
+`Wrie a function that determines if a palindrome can be created by swapping two adjacent characters in a string. If it is possible to create a palindrome, then your program should return the palindrome, if not then return the string -1`;
+// function palindromeSwapper(str) {
+//   let answer;
+//   for (let i = 0; i < str.length - 1; i++) {
+//     const strArr = [...str];
+//     const leftLetter = str.slice(i, i + 1);
+//     const rightLetter = str.slice(i + 1, i + 2);
+//     strArr[i] = rightLetter;
+//     strArr[i + 1] = leftLetter;
+//     const joinedString = strArr.join('');
+//     if (joinedString === strArr.reverse().join('')) {
+//       answer = joinedString;
+//       break;
+//     } else {
+//       answer = '-1'
+//     }
+//   }
+//   return answer;
+// }
+// console.log(palindromeSwapper('kyaak')); // kayak
 `Write a function that takes in a string of alphanumeric characters with a single asterisk character splitting the string evenly into two separate strings and returns a new string that pairs up the characters in the corresponding locations from both strings.`;
 // function strMerge(str) {
 //   const strArr = str.match(/\w+/ig);
