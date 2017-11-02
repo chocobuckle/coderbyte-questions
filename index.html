@@ -7,13 +7,54 @@
 <body>
 <script>
 `EASY QUESTIONS!!!`;
-``;
-function arrayAddition(arr) {
-  const highestNum = Math.max(...arr);
-  const nums = arr.filter(num => num >= 0 && num !== highestNum)
-  console.log(nums);
-}
-console.log(arrayAddition([3,5,-1,8,12]));
+`Write a function that takes an array of numbers and returns a new list of the products of all the other numbers in the array for each element. For example: if arr is [1, 2, 3, 4, 5] then the new array, where each location in the new array is the product of all other elements, is [120, 60, 40, 30, 24].`;
+// function otherProducts(arr) {
+//   const answerArray = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     const otherDigits = [];
+//     for (let j = 0; j < arr.length; j++) {
+//       if (i === j) continue;
+//       otherDigits.push(arr[j])
+//     }
+//     answerArray.push(otherDigits.reduce((acc, num) => acc * num));
+//   }
+//   return answerArray.join('-');
+// }
+// console.log(otherProducts([1, 4, 3])); // '12-3-4'
+// console.log(otherProducts([3, 1, 2, 6])); // '12-36-18-6'
+`NOTE: THIS ANSWER DOESN'T SEEM TO WORK ON CODERBYTE. BUT IT'S RIGHT!!! Write a function that takes in an array of strings. Each string will either be an integer ranging from 1...n or the letter "E". Return the correct subset based on the following rules: The input will be in the following format: ["I","I","E","I",...,"E",...,"I"] where the I's stand for integers and the E means take out the smallest integer currently in the whole set. When finished, your program should return that new set with integers separated by commas. For example: if strArr is ["5","4","6","E","1","7","E","E","3","2"] then your program should return 4,1,5.`;
+// function offLineMinimum(strArr) {
+//   const answerArr = [];
+//   const currentNums = [];
+//   while (strArr.includes('E')) {
+//     strArr.splice(0, strArr.indexOf('E') + 1)
+//       .filter(str => str !== 'E')
+//       .forEach(num => currentNums.push(parseInt(num)));
+//     const smallestNumber = Math.min(...currentNums);
+//     answerArr.push(smallestNumber);
+//     currentNums.splice(currentNums.indexOf(smallestNumber), 1);
+//   }
+//   return answerArr.join(', ');
+// }
+// console.log(offLineMinimum(['1','2','E','E','3'])); // '1, 2';
+// console.log(offLineMinimum(['4','E','1','E','2','E','3','E'])); // '4, 1, 2, 3';
+// console.log(offLineMinimum(['5','4','6','E','1','7','E','E','3','2'])); // '4, 1, 5';
+`Write a function that takes and array of numbers and returns the second lowest and second greatest numbers, respectively, separated by a space.`;
+// function secondGreatestLow(arr) {
+//   const store = arr.reduce((obj, num) => {
+//     obj[num] ? obj[num] += 1 : obj[num] = 1;
+//     return obj;
+//   }, {});
+//   const uniqueArr = Object.keys(store);
+//   const sortedArr = uniqueArr.sort((a, b) => a - b).map(num => parseInt(num));
+//   const secondLowest = sortedArr[1];
+//   const secondHighest = sortedArr[sortedArr.length - 2];
+//   return `${secondLowest} ${secondHighest}`;
+// }
+// console.log(secondGreatestLow([1, 42, 42, 180])); // 42 42
+// console.log(secondGreatestLow([7, 7, 12, 98, 106])); // 12 98
+// console.log(secondGreatestLow([-4, -5, 10, 2])); // -4 2
+// console.log(secondGreatestLow([4, 90])); // 90 4
 `Write a function that takes in a string and determines if each letter in the string is surrounded by '+' symbols.`;
 // function simpleSymbols(str) {
 //   const strArr = [...str];
@@ -413,7 +454,7 @@ than the sum of all the numbers in the array`;
 
 //   return arr[highestRepsPerWord.indexOf(highestRepsInAllWords)];
 // }
-// console.log(highestRepeatedLetters('Hello appple pie'));
+// console.log(highestRepeatedLetters('Hello apple pie'));
 `Write a function that takes an array of numbers and returns the string "Arithmetic" if the sequence follows an arithmetic pattern or "Geometric" if it follows a geometric pattern. If the sequence doesn't follow either pattern return false. An arithmetic sequence is one where the difference between each of the numbers is consistent, where as in a geometric sequence, each term after the first is multiplied by some constant or common ratio. Arithmetic example: [2, 4, 6, 8] and Geometric example: [2, 6, 18, 54].`;
 // function arithGeo(arr) {
 //   const arrLen = arr.length;
