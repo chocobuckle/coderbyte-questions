@@ -69,14 +69,14 @@
 //       }
 //     }
 //   }
-//   return answer === true ? answer : false;
+//   return answer;
 // }
 // console.log(simpleSymbols('+d+=3=+s+')); // true
 // console.log(simpleSymbols('f++d+')); // false
 `Write a function that takes a string which is a rating between 0.00 and 5.00, and convert this rating into a list of 5 image names to be displayed in a user interface to represent the rating as a list of stars and half stars. Ratings should be rounded up to the nearest half. There are 3 image file names available: "full.jpg", "half.jpg", "empty.jpg". The output will be the name of the 5 images (without the extension), from left to right, separated by spaces. For example: if str is "2.36" then you should return the string "full full half empty empty".`;
 // function starRating(str) {
 //   const parsedScore = parseFloat(str);
-//   const roundedHalf = (function (num) {
+//   const roundedHalf = (function(num) {
 //       return Math.round(num * 2) / 2;
 //   })(parsedScore);
 //   let answer = '';
@@ -95,7 +95,7 @@
 //   return answer.slice(0, answer.length - 1);
 // }
 // console.log(starRating('4.20'));
-`Wrie a function that determines if a palindrome can be created by swapping two adjacent characters in a string. If it is possible to create a palindrome, then your program should return the palindrome, if not then return the string -1`;
+`Wrie a function that determines if a palindrome can be created by swapping two adjacent characters in a string. If it is possible to create a palindrome, then your program should return the palindrome, if not then return false`;
 // function palindromeSwapper(str) {
 //   let answer;
 //   for (let i = 0; i < str.length - 1; i++) {
@@ -109,7 +109,7 @@
 //       answer = joinedString;
 //       break;
 //     } else {
-//       answer = '-1'
+//       answer = false;
 //     }
 //   }
 //   return answer;
@@ -157,6 +157,7 @@ than the sum of all the numbers in the array`;
 `Write a function that takes a string and returns the string in proper camel case.`;
 // function camelCase(str) {
 //   const strArr = str.match(/[a-zA-Z]+/ig);
+//   console.log(strArr);
 //   const camelCaseArr = strArr.map((str, i) => {
 //     if (i === 0) {
 //       return str.toLowerCase();
@@ -170,7 +171,7 @@ than the sum of all the numbers in the array`;
 // }
 // console.log(camelCase("a b c d-e-f%g")); // aBCDEFG
 // console.log(camelCase("cats AND*Dogs-are Awesome")); // cATSANDDOGSAREAWESOME
-`Write a function that takes an array of numbers an returns the sum of the largest four numbers.`;
+`Write a function that takes an array of numbers and returns the sum of the largest four numbers.`;
 // function largestFour(arr) {
 //   const sorted = arr.sort((a, b) => a - b);
 //   const largestFourNums = sorted.slice(-4);
@@ -254,7 +255,7 @@ than the sum of all the numbers in the array`;
 // }
 // console.log(NonRepeatingCharacter('abcdef')); // a
 // console.log(NonRepeatingCharacter('hello world hi hey')); // w
-`Write a function that takes a long number and determines the longest double digit number within that long number.`;
+`Write a function that takes a long number and determines the highest double digit number within that long number.`;
 // function LargestPair(num) {
 //   const numArr = [...num.toString()];
 //   let largestNum = 0;
@@ -336,19 +337,19 @@ than the sum of all the numbers in the array`;
 // }
 // console.log(OverlappingRanges([5, 11, 1, 5, 1]));
 // console.log(OverlappingRanges([1, 8, 2, 4, 4]));
-'Write a function that determines at what index in an array the sequence change from increasing to decreasing or vice versa. For example, if the array were [1, 2, 4, 6, 4, 3, 1] then your program should return 3 because at index 3 the sequence begins to change from increasing to decreasing. If there is no change in sequence, then your program should return -1.';
+'Write a function that determines at what index in an array the sequence change from increasing to decreasing or vice versa. For example, if the array were [1, 2, 4, 6, 4, 3, 1] then your program should return 3 because at index 3 the sequence begins to change from increasing to decreasing. If there is no change in sequence, then your program should return false.';
 // function ChangingSequence(arr) {
 //   // check if first two numbers form an increasing sequence
 //   const startsIncreasing = arr[1] > arr[0] ? true : false;
 //   // loop through the rest of the array
 //   for (let i = 2; i < arr.length; i++) {
 //     // determine if next number in sequence matches
-//     // the boolean value we define in the variable "increasing"
+//     // the boolean value we define in the variable "startsIncreasing"
 //     const stillIncreasing = arr[i] > arr[i - 1];
 //     // if they do not match, then we know the sequence changes
 //     if (stillIncreasing !== startsIncreasing) return i - 1;
 //   }
-//   // if no change was detected, then just return -1
+//   // if no change was detected, then just return false
 //   return false;
 // }
 // console.log(ChangingSequence([5, 4, 3, 2, 10, 11]));
@@ -408,14 +409,15 @@ than the sum of all the numbers in the array`;
 // function dashInsert(str) {
 //   const arr = [...str];
 //   for (let i = 0; i < str.length; i++) {
-//     if (arr[i] % 2 !== 0 && (arr[i + 1] !== undefined && arr[i + 1] % 2 !== 0)) {
+//     if (arr[i] % 2 !== 0 &&
+//       (arr[i + 1] !== undefined && arr[i + 1] % 2 !== 0)) {
 //       arr[i] = arr[i] + '-';
 //     }
 //   }
 //   return arr.join('');
 // }
 // console.log(dashInsert('454793'));
-`Write a function that takes an array of numbers and determines if its mean equals its mode. Return a 1 if they're equal, return 0 if not.`;
+`Write a function that takes an array of numbers and determines if its mean equals its mode. Return true if they're equal, return false if not.`;
 // function meanMode(arr) {
 //   const sum = arr.reduce((acc, num) => acc + num);
 //   const mean = sum / arr.length;
@@ -427,15 +429,11 @@ than the sum of all the numbers in the array`;
 
 //   const highestValue = Math.max(...Object.values(countObject));
 
-//   let mode;
+//   let mode = Object.keys(countObject).filter((prop) => prop == highestValue);
 
-//   for (let prop in countObject) {
-//     if (countObject[prop] === highestValue) mode = prop;
-//   }
-
-//   return mean === parseInt(mode) ? true : false;
+//   return mean === parseInt(mode);
 // }
-// console.log(meanMode([5, 3, 3, 3, 1]));
+// console.log(meanMode([5, 3, 3, 3, 1])); // true
 `Write a function that returns the first word with the greatest number of repeated letters. For example: "Today, is the greatest day ever!" should return 'greatest' because it has 2 e's (and 2 t's) and it comes before 'ever' which also has 2 e's. If there are no words with repeating letters return false.`;
 // function highestRepeatedLetters(str) {
 //   const arr = str.split(' ');
@@ -487,7 +485,7 @@ than the sum of all the numbers in the array`;
 //     if (arr[i] === 'o') yCounter += 1;
 //   }
 
-//   return (xCounter === yCounter);
+//   return xCounter === yCounter;
 // }
 // console.log(ExOh('xooxxoo'));
 `Write a function that takes in a sentence and returns its word count.`;
@@ -501,9 +499,7 @@ than the sum of all the numbers in the array`;
 // console.log(vowelCount('coderbyte'));
 `Write a function that takes in a string and returns true if the characters a and b are separated by exactly 3 places anywhere in the string at least once (ie. "lane borrowed" would result in true because there is exactly three characters between a and b). Otherwise return the string false.`;
 // function ABCheck(str) {
-//   if (/a...b/ig.test(str)) {
-//     return true
-//   }
+//   if (/a...b/ig.test(str)) return true;
 //   return false;
 // }
 // console.log(ABCheck('lane borrowed'));
@@ -520,12 +516,11 @@ than the sum of all the numbers in the array`;
 // console.log(timeConvert(45));
 `Write a function that takes in two numbers. If both equal return false, if num2 is greater than num1 return true.`;
 // function CheckNums(num1,num2) {
-//   return num1 === num2;
-//   return num2 > num1;
+//   if (num1 === num2) return false;
+//   if (num2 > num1) return true;
 // }
-
 // console.log(CheckNums(2, 2));
-// console.log(CheckNums(2, 1));
+// console.log(CheckNums(2, 3));
 `Write a function that capatalises the first letter of each word in a string`;
 // function capFirstLetter(str) {
 //  const arr = str.split(' ');
@@ -535,23 +530,23 @@ than the sum of all the numbers in the array`;
 // console.log(capFirstLetter('Let\'s capatalise the first letter of each word in this string.'));
 `Write a function that adds up all the numbers from 1 to the given number.`;
 // function addNumbers(num) {
-//  let sum = 0;
-//  for (let i = 1; i <= num; i++) {
+//   let sum = 0;
+//   for (let i = 1; i <= num; i++) {
 //    sum += i;
-//  }
-//  return sum;
+//   }
+//   return sum;
 // }
 // console.log(addNumbers(4));
 `Find the longest word in a sentence, ignoring punctuation.`;
 // function findLongestWord(sen) {
-//   // const arr = sen.split(' '); // If we were including punctuation then we could use this, as it just splits the setence each time it encounters a space.
+//   // const arr = sen.split(' '); // If we were including punctuation then we could use this, as it just splits the sentence each time it encounters a space.
 //   const arr = sen.match(/\w+/gi);
 //   const sortedByLen = arr.sort((a, b) => b.length - a.length);
 //   return sortedByLen[0];
 // }
-// console.log(findLongestWord('What is the longest word in this sentence'));
+// console.log(findLongestWord('What is the longest word in this sentence?'));
 `Calculate the factorial of a number using recursion`;
-// Simplest way...
+// // Simplest way...
 // const getFactorial = num => num === 0 ? 1 : num * getFactorial(num - 1);
 // console.log(getFactorial(5));
 
@@ -584,25 +579,25 @@ than the sum of all the numbers in the array`;
 // console.log(isEven(4)); // true
 // console.log(isEven(5)); // false
 `Make a function that duplicates a given array.`;
-//  // You could do a map or a forEach then return the array. But the shortest way is using the ES6 spread operator.
+ // You could do a map or a forEach then return the array. But the shortest way is using the ES6 spread operator.
 // const duplicate = arr => [...arr, ...arr];
-// console.log(duplicate([1,2,3,4,5])); // [1,2,3,4,5,1,2,3,4,5]
+// console.log(duplicate([1, 2, 3, 4, 5])); // [1, 2, 3, 4, 5, 1, 2, 3, 4, 5]
 `How would you add your own method to the Array object so you could find the
 average of an array of numbers.`;
 // const arr = [1, 2, 3, 4, 5];
 // Array.prototype.average = function() {
-//  const sum = this.reduce((acc, num) => acc + num)
-//  return sum / this.length;
+//   const sum = this.reduce((acc, num) => acc + num)
+//   return sum / this.length;
 // }
 // console.log(arr.average()); // 3
 `Double an array of numbers, then save the original numbers and the doubled
 results as key-value pairs in an object.`;
-// const arr = [1, 2, 3, 4, 5];
+// // const arr = [1, 2, 3, 4, 5];
 // const result = arr.reduce((obj, num) => {
-//  obj[num] = num * 2;
-//  return obj;
+//   obj[num] = num * 2;
+//   return obj;
 // }, {})
-// console.log(result);
+// // console.log(result);
 </script>
 </body>
 </html>
