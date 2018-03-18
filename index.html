@@ -598,6 +598,76 @@ results as key-value pairs in an object.`;
 //   return obj;
 // }, {})
 // // console.log(result);
+`Return the remaining elements of an array after chopping off n elements from the head.
+The head means the beginning of the array, or the zeroth index.`
+// function slasher(arr, howMany) {
+//   for (let i = 0; i < howMany; i++) {
+//     arr.splice(0, 1);
+//   }
+//   return arr;
+// }
+// console.log(slasher([1, 2, 3], 2));
+`Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.`
+// function chunkArrayInGroups(arr, size) {
+//   const answer = [];
+//   const cashedArr = [...arr];
+//   for (let i = 0; i < cashedArr.length / size; i++) {
+//     answer.push(arr.splice(0, size));
+//   }
+//   return answer;
+// }
+
+// console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
+// console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2));
+// function repeatStringNumTimes(str, num) {
+//   if (num < 1) return '';
+//   let answer = '';
+//   for (let i = 1; i <= num; i++) {
+//     answer += str;
+//   }
+//   return answer;
+// }
+
+// console.log(repeatStringNumTimes("abc", 2));
+`Check if a given string ends with a given target.`
+// function confirmEnding(str, target) {
+//   return str.substr(-target.length) === target;
+// }
+// console.log(confirmEnding("He has to give me a new name", "name"));
+// function largestOfFour(arr) {
+//   const answerArr = [];
+//   arr.forEach((subArr) => answerArr.push(Math.max(...subArr)));
+//   return answerArr;
+// }
+
+// console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
+// function titleCase(str) {
+//   const wordArr = str.split(' ');
+//   const casedWordArr = wordArr.map((word) => word.slice(0, 1).toUpperCase() + word.slice(1).toLowerCase());
+//   return casedWordArr.join(' ');
+// }
+// console.log(titleCase("I'm a little tea pot"));
+// function findLongestWordLength(str) {
+//   const wordArr = str.match(/\w+/ig);
+//   const sortedWordArr = wordArr.sort((a, b) => b.length - a.length);
+//   return sortedWordArr[0].length;
+// }
+// console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
+
+// function palindrome(str) {
+//   const forwardsArr = str.match(/[a-zA-Z0-9]/ig)
+//     .filter((char) => char !== ' ')
+//     .map((char) => char.toLowerCase());
+//   console.log(forwardsArr);
+//   const backwardsArr = [...forwardsArr].reverse();
+//   return forwardsArr.join('') === backwardsArr.join('');
+// }
+// console.log(palindrome("1 eye for of 1 eye."));
+
+// function factorialize(num) {
+//   return num === 0 ? 1 : num * factorialize(num - 1);
+// }
+// console.log(factorialize(5));
 </script>
 </body>
 </html>
