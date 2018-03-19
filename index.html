@@ -599,7 +599,7 @@ results as key-value pairs in an object.`;
 // }, {})
 // // console.log(result);
 `Return the remaining elements of an array after chopping off n elements from the head.
-The head means the beginning of the array, or the zeroth index.`
+The head means the beginning of the array, or the zeroth index.`;
 // function slasher(arr, howMany) {
 //   for (let i = 0; i < howMany; i++) {
 //     arr.splice(0, 1);
@@ -607,7 +607,7 @@ The head means the beginning of the array, or the zeroth index.`
 //   return arr;
 // }
 // console.log(slasher([1, 2, 3], 2));
-`Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.`
+`Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.`;
 // function chunkArrayInGroups(arr, size) {
 //   const answer = [];
 //   const cashedArr = [...arr];
@@ -629,7 +629,7 @@ The head means the beginning of the array, or the zeroth index.`
 // }
 
 // console.log(repeatStringNumTimes("abc", 2));
-`Check if a given string ends with a given target.`
+`Check if a given string ends with a given target.`;
 // function confirmEnding(str, target) {
 //   return str.substr(-target.length) === target;
 // }
@@ -668,6 +668,52 @@ The head means the beginning of the array, or the zeroth index.`
 //   return num === 0 ? 1 : num * factorialize(num - 1);
 // }
 // console.log(factorialize(5));
+// Find the lowest index in an array at which a number(second argument) can be inserted once that
+// array has been sorted.
+// function getIndexToIns(arr, num) {
+//   arr.push(num);
+//   arr.sort((a, b) => a - b);
+//   return arr.indexOf(num);
+// }
+// console.log(getIndexToIns([10, 20, 30, 40, 50], 35));
+// function rot13(str) { // LBH QVQ VG!
+//   const strArr = [...str];
+//   const decoded = strArr.map((char) => {
+//     if (/[A-Z]/.test(char)) {
+//       let newLetter = String.fromCharCode((char.charCodeAt(0) - 13));
+//       if (newLetter.charCodeAt(0) < 65) {
+//         const newCharCode = 64 - newLetter.charCodeAt(0);
+//         const transformedCharCode = 90 - newCharCode;
+//         newLetter = String.fromCharCode(transformedCharCode);
+//       }
+//       return newLetter;
+//     }
+//     return char;
+//   });
+//   return decoded.join('');
+// }
+// Change the inputs below to test
+// console.log(rot13("SERR PBQR PNZC"));
+`Sum two numbers in an array and every number in between them.`;
+// function sumAll(arr) {
+//   const sortedArr = arr.sort((a, b) => a - b);
+//   const [ smallN, bigN ] = sortedArr;
+//   let answer = 0;
+//   for (let i = smallN; i <= bigN; i++ ) {
+//     answer += i;
+//   }
+//   return answer;
+// }
+
+// sumAll([1, 4]);
+`Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. In other words, return the symmetric difference of the two arrays.`;
+function diffArray(arr1, arr2) {
+  const unique1 = arr1.filter((n) => !arr2.includes(n));
+  const unique2 = arr2.filter((n) => !arr1.includes(n));
+  return unique1.concat(unique2);
+}
+
+console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
 </script>
 </body>
 </html>
